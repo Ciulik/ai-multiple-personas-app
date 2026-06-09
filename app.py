@@ -6,10 +6,18 @@ import plotly.express as px
 st.set_page_config(page_title="AI Persona Voting", page_icon="🤖", layout="centered")
 
 # CSS to make everything look good on mobile devices
+# CSS to make everything look good on mobile devices
 st.markdown("""
     <style>
     .stButton>button { width: 100%; border-radius: 20px; font-weight: bold; }
-    .persona-box { padding: 20px; border-radius: 10px; background-color: #f0f2f6; margin-bottom: 20px; border-left: 5px solid #ff4b4b; }
+    .persona-box { 
+        padding: 20px; 
+        border-radius: 10px; 
+        background-color: #f0f2f6; 
+        color: #1A1A1A !important; /* AICI E REZOLVAREA: Forțează textul închis la culoare */
+        margin-bottom: 20px; 
+        border-left: 5px solid #ff4b4b; 
+    }
     </style>
 """, unsafe_allow_html=True)
 
