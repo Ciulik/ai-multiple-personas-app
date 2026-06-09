@@ -188,8 +188,7 @@ else:
     fig = px.bar(df_votes, x="Votes", y="Persona", orientation='h', 
                  title="Live Leaderboard 🏆", color="Votes", color_continuous_scale="Viridis")
     
-    fig.update_layout(xaxis=dict(tickstep=1)) # Force integer ticks on the X axis (1, 2, 3...)
-    
+    fig.update_layout(xaxis=dict(dtick=1)) # Force integer ticks on the X axis (1, 2, 3...)    
     st.plotly_chart(fig, use_container_width=True)
     
     st.caption("Refresh the page to see updated global votes.")
