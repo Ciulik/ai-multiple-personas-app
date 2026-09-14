@@ -1,24 +1,40 @@
-# ⚖️ NLP Insights Engine & LLM-as-a-Judge Validation
+# ⚖️ NLP Insights Engine & LLM-as-a-Judge (Interactive Demo)
+
+> **Note:** This repository contains the public interactive demo for a larger, proprietary NLP pipeline maintained privately by a team of developers. This application visualizes the final outputs and evaluations after the data has been processed through the complete backend architecture.
 
 ## 📌 Overview
-An advanced Natural Language Processing pipeline designed to extract structured business insights from unstructured text. This repository features a comparative sentiment classification engine and an LLM-as-a-Judge module that utilizes strict mathematical constraints to eliminate generative hallucinations.( this is only the demo part of the actual code that is private behind a team of developers, the demo uses the data after it was throughout the whole pieline and shows the final results)
+An interactive data visualization application designed to explore structured business insights extracted from unstructured text. This demo showcases the results of a multi-persona generative AI experiment evaluated by an overarching LLM-as-a-Judge module, which utilizes strict mathematical constraints to flag and eliminate generative hallucinations.
 
-## ⚙️ Architecture
+## ⚙️ Backend Architecture (Private Pipeline)
+The data presented in this demo is the result of a rigorous, private backend pipeline consisting of:
+1. **Comparative Sentiment Classification:** Evaluates text using classical models (TF-IDF + Linear SVM) alongside fine-tuned transformer architectures (DistilBERT, RoBERTa), optimized for maximum Micro-F1 performance.
+2. **LLM-as-a-Judge with Metric Coupling:** A deterministic safety layer over generative AI outputs. If foundational data accuracy evaluates at ≤2/5, the system mathematically restricts the actionability score, logically blocking the AI from hallucinating business recommendations based on unreliable data.
+3. **Aspect-Based Analysis:** Categorizes text into specific operational aspects (e.g., service, price, environment) to route targeted insights.
 
-1. **Comparative Sentiment Classification**
-   - Evaluates text using classical models (TF-IDF + Linear SVM) alongside fine-tuned transformer architectures (DistilBERT, RoBERTa).
-   - Benchmarked on datasets to identify optimal contextual understanding versus computational cost.
-
-2. **LLM-as-a-Judge with Metric Coupling**
-   - Implements a deterministic safety layer over generative AI outputs.
-   - **Metric Coupling Logic:** If the foundational data accuracy is evaluated at ≤2/5 by the system, the actionability score is automatically restricted. 
-   - **Result:** The system is mathematically blocked from hallucinating business recommendations based on invented or low-confidence data.
-
-3. **Aspect-Based Analysis**
-   - Categorizes text into specific operational aspects (e.g., service, price, ambiance) to route targeted insights rather than relying on generic sentiment scores.
+## 🖥️ Demo Features (This Repository)
+- **Interactive Persona Engine:** Toggle between 15+ distinct AI personas (e.g., Data Analyst, Culinary Expert, JSON Strict) to see how different prompt constraints shape the output based on the same foundational data.
+- **Judge AI Evaluation Viewer:** Expandable metrics revealing the hidden "LLM Judge" scores for Accuracy (1-5) and Actionability (1-5), including specific feedback on hallucinations.
+- **Live Voting & Leaderboard:** Real-time interactive voting system mapping user preferences, visualized dynamically using Plotly.
 
 ## 🚀 Tech Stack
-- **Machine Learning:** scikit-learn, SVM, TF-IDF
-- **Deep Learning / NLP:** Hugging Face Transformers (DistilBERT, RoBERTa), PyTorch
-- **Generative AI:** LLM integration via prompt engineering guardrails
-- **Languages:** Python
+- **Frontend / Demo:** Python, Streamlit, Pandas, Plotly Express
+- **Backend / Private Core:** scikit-learn, SVM, Hugging Face Transformers (DistilBERT, RoBERTa), PyTorch, Generative LLMs
+
+## 🛠️ How to Run Locally
+
+Follow these steps to deploy the interactive Streamlit demo on your local machine:
+
+**1. Clone the repository:**
+
+git clone [https://github.com/Ciulik/ai-multiple-personas-app.git](https://github.com/Ciulik/ai-multiple-personas-app.git)
+cd ai-multiple-personas-app
+
+**2. Install dependencies:**
+
+Ensure you have Python installed, then install the required libraries for the visualization app:
+pip install streamlit pandas plotly
+
+**3. Run the application:**
+
+Execute the Streamlit server to launch the app in your default web browser:
+streamlit run app.py
